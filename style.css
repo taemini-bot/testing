@@ -1,3 +1,23 @@
+:root {
+    --bg-color: #f0f2f5;
+    --container-bg: #fff;
+    --text-color: #333;
+    --number-bg: #4CAF50;
+    --button-bg: #008CBA;
+    --button-hover: #005f73;
+    --shadow: rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode {
+    --bg-color: #18191a;
+    --container-bg: #242526;
+    --text-color: #e4e6eb;
+    --number-bg: #2d88ff;
+    --button-bg: #3a3b3c;
+    --button-hover: #4e4f50;
+    --shadow: rgba(0, 0, 0, 0.5);
+}
+
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     display: flex;
@@ -5,20 +25,24 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-color: #f0f2f5;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
 }
 
 .container {
     text-align: center;
-    background-color: #fff;
+    background-color: var(--container-bg);
     padding: 40px;
     border-radius: 15px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 20px var(--shadow);
+    transition: background-color 0.3s, box-shadow 0.3s;
 }
 
 h1 {
-    color: #333;
+    color: var(--text-color);
     margin-bottom: 30px;
+    transition: color 0.3s;
 }
 
 .lotto-numbers {
@@ -33,18 +57,18 @@ h1 {
     align-items: center;
     width: 50px;
     height: 50px;
-    background-color: #4CAF50;
+    background-color: var(--number-bg);
     color: white;
     border-radius: 50%;
     margin: 0 10px;
     font-size: 24px;
     font-weight: bold;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out, background-color 0.3s;
 }
 
 #draw-button {
-    background-color: #008CBA;
+    background-color: var(--button-bg);
     color: white;
     padding: 15px 32px;
     text-align: center;
@@ -60,6 +84,28 @@ h1 {
 }
 
 #draw-button:hover {
-    background-color: #005f73;
+    background-color: var(--button-hover);
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.theme-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+#theme-button {
+    background: none;
+    border: 2px solid var(--text-color);
+    color: var(--text-color);
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 20px;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+#theme-button:hover {
+    background-color: var(--text-color);
+    color: var(--container-bg);
 }
